@@ -1,11 +1,16 @@
-# README
+# Make Me
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repositori is for reviewing yourself.
+
+Please utilize by all means
 
 Things you may want to cover:
 
 * Ruby version
+
+```
+2.5.1
+```
 
 * System dependencies
 
@@ -15,7 +20,15 @@ Things you may want to cover:
 
 * Database initialization
 
+```
+MySQL ver 5.7 in gems 0.5.2
+```
+
 * How to run the test suite
+
+request : RSpec
+
+lint : Rubocop
 
 * Services (job queues, cache servers, search engines, etc.)
 
