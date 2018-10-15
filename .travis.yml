@@ -8,7 +8,7 @@ env:
 services:
     - mysql
 before_script:
-    - "mysql -e 'create database make-me_test;'"
+    - mysql -e 'create database make-me_test;'
     - cp -f config/database.travis.yml config/database.yml
     - bundle install
 script:
