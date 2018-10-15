@@ -69,3 +69,12 @@ Things you may want to cover:
 ```
   $ bundle exec rubocop -a
 ```
+
+* ルーティング確認
+
+ ```
+  $ bundle exec rails s -b 0.0.0.0
+
+  ブラウザで
+  localhost:3000/rails/info/routes  にアクセス。
+ ```

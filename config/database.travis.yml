@@ -1,0 +1,7 @@
+test:
+  <<: *default
+  adapter: mysql2
+  host: 127.0.0.1
+  database: make-me_test
+  username: travis
+  encoding: utf8
