@@ -9,13 +9,13 @@ Things you may want to cover:
 * Ruby version
 
 ```
-2.5.1
+  2.5.1
 ```
 
 * Rails version
 
 ```
-5.2.1
+  5.2.1
 ```
 
 * System dependencies
@@ -27,7 +27,7 @@ Things you may want to cover:
 * Database initialization
 
 ```
-MySQL ver 5.7 in gems 0.5.2
+  MySQL ver 5.7 in gems 0.5.2
 ```
 
 * How to run the test suite
@@ -40,4 +40,41 @@ MySQL ver 5.7 in gems 0.5.2
 
 * Deployment instructions
 
-* ...
+* サーバ立ち上げ
+
+```
+  $ bundle exec rails s -b 0.0.0.0
+```
+
+もしできなかった場合、、、
+
+```
+  $ bundle exec rails db:create
+```
+
+* マイグレーション
+
+```
+  $ bundle exec rails db:migrate
+```
+
+* テスト実行
+
+```
+  $ bundle exec rspec [ファイル名(ディレクトリも指定)]
+```
+
+* rubocop(Lintチェック)実行
+
+```
+  $ bundle exec rubocop -a
+```
+
+* ルーティング確認
+
+ ```
+  $ bundle exec rails s -b 0.0.0.0
+
+  ブラウザで
+  localhost:3000/rails/info/routes  にアクセス。
+ ```

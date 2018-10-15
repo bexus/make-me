@@ -4,15 +4,18 @@ rvm:
     # - ruby-head
 env:
   global:
-    MYSQL_USERNAME='root'
-    MYSQL_HOST='127.0.0.1'
-    MYSQL_SOCKET='~travis/.my.cnf'
+    DEVISE_TOKEN_AUTH_SECRET_KEY="secrets"
 services:
     - mysql
 before_script:
+    - cp -f config/database.travis.yml config/database.yml
     - bundle install
 script:
     - bundle exec rails db:create RAILS_ENV=test
-    - bundle exec rails db:migrate RAILS_ENV=test
+    - bundle exec rails db:schema:load RAILS_ENV=test
     - bundle exec rspec --color --require spec_helper --format progress spec
     - bundle exec rubocop
+after_failure:
+  - "mysql -e 'show databases;'"
+  - "cat ./log/test.log"
+  - "echo $RAILS_ENV"
