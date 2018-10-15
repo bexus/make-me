@@ -7,6 +7,7 @@ env:
     MYSQL_USERNAME='root'
     MYSQL_HOST='127.0.0.1'
     MYSQL_SOCKET='~travis/.my.cnf'
+    DEVISE_TOKEN_AUTH_SECRET_KEY="secrets"
 services:
     - mysql
 before_script:
