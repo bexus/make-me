@@ -6,11 +6,12 @@ env:
   global:
     MYSQL_USERNAME='root'
     MYSQL_HOST='127.0.0.1'
-    MYSQL_SOCKET='~travis/.my.cnf'
+    MYSQL_SOCKET='/tmp/mysql.sock'
     DEVISE_TOKEN_AUTH_SECRET_KEY="secrets"
 services:
     - mysql
 before_script:
+    - touch /tmp/mysql.sock
     - bundle install
 script:
     - bundle exec rails db:create RAILS_ENV=test
