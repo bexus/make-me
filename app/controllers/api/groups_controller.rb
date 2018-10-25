@@ -10,9 +10,10 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params)
+    @group = Group.new(name: group_params[:name], image: group_params[:image])
 
     if @group.save
+      group_params[:members].map{|member| Member.create(group_id: @group.id, user_id: member[:user_id])}
       render :create, formats: :json
     else
       render json: @group.errors, status: :unprocessable_entity
@@ -44,6 +45,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def group_params
-    params.fetch(:group, {}).permit(:name, :image, user_ids: [])
+    params.fetch(:group, {}).permit(:name, :image, members: [:user_id])
   end
 end
