@@ -7,10 +7,6 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
-  def show; end
-
   # POST /groups
   # POST /groups.json
   def create
