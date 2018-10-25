@@ -42,7 +42,13 @@ module Api
 
       # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :image, members: [:user_id])
+      params.require(:group).permit(
+        :name,
+        :image,
+        members: [
+          :user_id
+          ]
+        )
     end
 
     def create_groups(params)
@@ -59,3 +65,4 @@ module Api
     end
 
   end
+end

@@ -33,3 +33,4 @@ module Api
       params.require(:member).permit(:user_id).merge(group_id: @group.id)
     end
   end
+end

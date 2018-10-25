@@ -53,3 +53,4 @@ module Api
       params.require(:document).permit(:title, :content).merge(group_id: @group.id, user_id: current_user.id)
     end
   end
+end
