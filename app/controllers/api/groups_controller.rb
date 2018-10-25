@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show update destroy]
+  before_action :set_group, only: %i[update destroy]
 
   # GET /groups
   # GET /groups.json
@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      render :show, status: :created, location: @group
+      render :create, formats: :json
     else
       render json: @group.errors, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   def update
     if @group.update(group_params)
-      render :show, status: :ok, location: @group
+      render :create, formats: :json
     else
       render json: @group.errors, status: :unprocessable_entity
     end
@@ -44,6 +44,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def group_params
-    params.fetch(:group, {})
+    params.fetch(:group, {}).permit(:name, :image, user_ids: [])
   end
 end
